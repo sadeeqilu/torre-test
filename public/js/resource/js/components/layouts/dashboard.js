@@ -969,14 +969,8 @@ var render = function() {
     _c("nav", { staticClass: "navbar navbar-expand-lg navbar-dark bg-dark" }, [
       _c(
         "a",
-        {
-          staticClass: "navbar-brand",
-          attrs: {
-            href: "https://techvblogs.com/?ref=project",
-            target: "_blank"
-          }
-        },
-        [_vm._v("TechvBlogs")]
+        { staticClass: "navbar-brand", attrs: { href: "/", target: "_blank" } },
+        [_vm._v("FINDMEJOB")]
       ),
       _vm._v(" "),
       _vm._m(0),
@@ -1030,7 +1024,7 @@ var render = function() {
                   [
                     _vm._v(
                       "\n                            " +
-                        _vm._s(_vm.user.name) +
+                        _vm._s(_vm.user.last_name) +
                         "\n                        "
                     )
                   ]
