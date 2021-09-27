@@ -22,6 +22,9 @@ export default {
         return {
             user:this.$store.state.auth.user
         }
+    },
+    mounted(){
+        console.log("mounted")
     }
 }
 </script>

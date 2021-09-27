@@ -34,6 +34,9 @@ __webpack_require__.r(__webpack_exports__);
     return {
       user: this.$store.state.auth.user
     };
+  },
+  mounted: function mounted() {
+    console.log("mounted");
   }
 });
 
