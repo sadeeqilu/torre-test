@@ -18,9 +18,12 @@ class User extends Authenticatable
      * @var string[]
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
+        'username',
         'email',
         'password',
+        'send_alerts'
     ];
 
     /**
@@ -41,4 +44,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function createUser($data)
+    {
+        return self::create($data);
+    }
+
+    public function updateUser($data)
+    {
+        return self::update($data);
+    }
+
+    public function sites()
+    {
+        return $this->hasMany(\App\Site::class);
+    }
 }
