@@ -15,6 +15,8 @@ const DahboardLayout = () => import('../components/Layouts/Dashboard.vue' /* web
 
 /* Authenticated Component */
 const Dashboard = () => import('../components/Dashboard.vue' /* webpackChunkName: "resource/js/components/dashboard" */)
+const JobList = () => import('../components/Job/List.vue' /* webpackChunkName: "resource/js/components/job/list" */)
+
 /* Authenticated Component */
 
 
@@ -50,6 +52,14 @@ const Routes = [
                 component: Dashboard,
                 meta:{
                     title:`Dashboard`
+                }
+            },
+            {
+                name:"jobs",
+                path:"/jobs",
+                component: JobList,
+                meta:{
+                    title:`Jobs`
                 }
             }
         ]

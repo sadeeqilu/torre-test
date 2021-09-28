@@ -10,6 +10,9 @@
                     <li class="nav-item active">
                         <router-link :to="{name:'dashboard'}" class="nav-link">Home <span class="sr-only">(current)</span></router-link>
                     </li>
+                    <li class="nav-item">
+                        <router-link :to="{name:'jobs'}" class="nav-link">Jobs <span class="sr-only"></span></router-link>
+                    </li>
                 </ul>
                 <div class="ml-auto">
                     <ul class="navbar-nav">

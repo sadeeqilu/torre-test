@@ -2171,6 +2171,10 @@ var DahboardLayout = function DahboardLayout() {
 var Dashboard = function Dashboard() {
   return __webpack_require__.e(/*! import() | resource/js/components/dashboard */ "resource/js/components/dashboard").then(__webpack_require__.bind(__webpack_require__, /*! ../components/Dashboard.vue */ "./resources/js/components/Dashboard.vue"));
 };
+
+var JobList = function JobList() {
+  return __webpack_require__.e(/*! import() | resource/js/components/job/list */ "resource/js/components/job/list").then(__webpack_require__.bind(__webpack_require__, /*! ../components/Job/List.vue */ "./resources/js/components/Job/List.vue"));
+};
 /* Authenticated Component */
 
 
@@ -2202,6 +2206,13 @@ var Routes = [{
     component: Dashboard,
     meta: {
       title: "Dashboard"
+    }
+  }, {
+    name: "jobs",
+    path: "/jobs",
+    component: JobList,
+    meta: {
+      title: "Jobs"
     }
   }]
 }];
@@ -54314,7 +54325,7 @@ module.exports = JSON.parse('{"_args":[["axios@0.21.4","C:\\\\Users\\\\Sadiq Ilu
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resource/js/components/login":1,"resource/js/components/register":1,"resource/js/components/layouts/dashboard":1,"resource/js/components/dashboard":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resource/js/components/login":1,"resource/js/components/register":1,"resource/js/components/layouts/dashboard":1,"resource/js/components/dashboard":1,"resource/js/components/job/list":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

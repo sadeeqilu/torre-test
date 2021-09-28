@@ -78,10 +78,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'register',
@@ -91,8 +87,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         last_name: "",
         first_name: "",
         email: "",
-        password: "",
-        password_confirmation: ""
+        username: "",
+        password: ""
       },
       processing: false
     };
@@ -114,6 +110,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
                   _this.signIn();
                 })["catch"](function (_ref) {
                   var data = _ref.response.data;
+                  console.log(data);
                   alert(data.message);
                 })["finally"](function () {
                   _this.processing = false;
@@ -1022,7 +1019,8 @@ var render = function() {
                       type: "text",
                       name: "name",
                       id: "last_name",
-                      placeholder: "Enter last name"
+                      placeholder: "Enter last name",
+                      required: ""
                     },
                     domProps: { value: _vm.user.last_name },
                     on: {
@@ -1057,7 +1055,8 @@ var render = function() {
                       type: "text",
                       name: "name",
                       id: "first_name",
-                      placeholder: "Enter first name"
+                      placeholder: "Enter first name",
+                      required: ""
                     },
                     domProps: { value: _vm.user.first_name },
                     on: {
@@ -1095,7 +1094,8 @@ var render = function() {
                       type: "text",
                       name: "email",
                       id: "email",
-                      placeholder: "Enter Email"
+                      placeholder: "Enter Email",
+                      required: ""
                     },
                     domProps: { value: _vm.user.email },
                     on: {
@@ -1133,7 +1133,8 @@ var render = function() {
                       type: "password",
                       name: "password",
                       id: "password",
-                      placeholder: "Enter Password"
+                      placeholder: "Enter Password",
+                      required: ""
                     },
                     domProps: { value: _vm.user.password },
                     on: {
@@ -1142,48 +1143,6 @@ var render = function() {
                           return
                         }
                         _vm.$set(_vm.user, "password", $event.target.value)
-                      }
-                    }
-                  })
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "form-group col-12" }, [
-                  _c(
-                    "label",
-                    {
-                      staticClass: "font-weight-bold",
-                      attrs: { for: "password_confirmation" }
-                    },
-                    [_vm._v("Confirm Password")]
-                  ),
-                  _vm._v(" "),
-                  _c("input", {
-                    directives: [
-                      {
-                        name: "model",
-                        rawName: "v-model",
-                        value: _vm.user.password_confirmation,
-                        expression: "user.password_confirmation"
-                      }
-                    ],
-                    staticClass: "form-control",
-                    attrs: {
-                      type: "password_confirmation",
-                      name: "password_confirmation",
-                      id: "password_confirmation",
-                      placeholder: "Enter Password"
-                    },
-                    domProps: { value: _vm.user.password_confirmation },
-                    on: {
-                      input: function($event) {
-                        if ($event.target.composing) {
-                          return
-                        }
-                        _vm.$set(
-                          _vm.user,
-                          "password_confirmation",
-                          $event.target.value
-                        )
                       }
                     }
                   })

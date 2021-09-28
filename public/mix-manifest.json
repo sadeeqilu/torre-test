@@ -4,5 +4,6 @@
     "/js/resource/js/components/register.js": "/js/resource/js/components/register.js",
     "/js/resource/js/components/layouts/dashboard.js": "/js/resource/js/components/layouts/dashboard.js",
     "/js/resource/js/components/dashboard.js": "/js/resource/js/components/dashboard.js",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/js/resource/js/components/job/list.js": "/js/resource/js/components/job/list.js"
 }

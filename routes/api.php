@@ -19,4 +19,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::resource('site',App\Http\Controllers\SiteController::class)->only(['index','store','show','update','destroy']);
+Route::resource('/user',App\Http\Controllers\UserController::class)->only(['update','show']);
 
