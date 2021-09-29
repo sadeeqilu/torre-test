@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Site;
 use Illuminate\Http\Request;
+use GuzzleHttp\Client;
+use Illuminate\Support\Facades\Auth;
 
 class SiteController extends Controller
 {
@@ -22,8 +24,25 @@ class SiteController extends Controller
      */
     public function index()
     {
-        $sites = Site::all();
-        return response()->json($sites);
+        // $sites = Site::all();
+        // return response()->json($sites);
+        $user = auth()->user();
+        \Log::debug("user",['user'=>$user]);
+        if($user->username){
+            $client = new Client([
+                'base_uri' => "http://search.torre.co/",
+                'headers' => [
+                    'Accept' => 'application/json',
+                    'Content-type' => 'application/json',
+                ]
+            ]);
+            $offset = $user->last_total > 21 ? $user->last_total - 20 : $user->last_total;
+            $opportunities = $client->request('POST', 'opportunities/_search/?[offset='.$offset.']');
+            $opportunities = json_decode($opportunities->getBody()->getContents(),true);
+            return response()->json([
+                "opportunities" => $opportunities
+            ],200); 
+       }
     }
 
     /**

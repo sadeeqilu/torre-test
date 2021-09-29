@@ -28,7 +28,7 @@
                         </div>
                         </div>
                     <div v-else>
-                            <form action="javascript:void(0)" @submit="update" class="row" method="post">
+                            <form action="javascript:void(0)" @submit="update" class="row" method="post" style="padding:20px">
                                 <div class="form-group col-12">
                                     <label for="email" class="font-weight-bold">Please Enter Your Torre Account Username</label>
                                     <input type="text" name="email" v-model="user.username" id="username" placeholder="Enter Your Torre Account username" class="form-control" required>
@@ -49,6 +49,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
     name:"dashboard",
     data(){
@@ -65,21 +66,28 @@ export default {
         }
     },
     mounted(){
-        if(this.user.username !== '')
+        console.log("data",this.user)
+        if(this.user.username != null){
             this.user_account = true
-        this.getUser()
+            this.getUser()
+        }
     },
     methods:{
+        ...mapActions({
+            updateUser:'auth/login'
+        }),
         async update(){
             this.processing = true
             await axios.patch(`api/user/${this.user.id}`,this.user).then(response=>{
                 console.log(response)
-                this.profile.picture = response.user.person.picture
-                this.profile.name = response.user.person.name
-                this.profile.bio = response.user.person.summaryOfBio
-                this.profile.professionalHeadline = response.user.person.professionalHeadline
+                this.profile.picture = response.data.user.person.picture
+                this.profile.name = response.data.user.person.name
+                this.profile.bio = response.data.user.person.summaryOfBio
+                this.profile.professionalHeadline = response.data.user.person.professionalHeadline
                 this.user_account = true
-                // this.signIn()
+
+                this.updateUser()
+
             }).catch(({response:{data}})=>{
                 console.log(data)
                 alert(data.message)
@@ -89,7 +97,7 @@ export default {
         },
         async getUser(){
              await axios.get(`api/user/${this.user.id}`).then(response=>{
-                console.log(response)
+                // console.log(response)
                 this.profile.picture = response.data.user.person.picture
                 this.profile.name = response.data.user.person.name
                 this.profile.bio = response.data.user.person.summaryOfBio

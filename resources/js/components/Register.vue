@@ -23,6 +23,10 @@
                                 <label for="password" class="font-weight-bold">Password</label>
                                 <input type="password" name="password" v-model="user.password" id="password" placeholder="Enter Password" class="form-control" required>
                             </div>
+                            <div class="form-group col-12">
+                                <label for="password_confirmation" class="font-weight-bold">Confirm Password</label>
+                                <input type="password" name="password_confirmation" v-model="user.password_confirmation" id="password_confirmation" placeholder="Enter Password" class="form-control" required>
+                            </div>
                             <div class="col-12 mb-2">
                                 <button type="submit" :disabled="processing" class="btn btn-primary btn-block">
                                     {{ processing ? "Please wait" : "Register" }}
@@ -51,6 +55,7 @@ export default {
                 email:"",
                 username:"",
                 password:"",
+                password_confirmation:""
             },
             processing:false
         }
@@ -62,6 +67,7 @@ export default {
         async register(){
             this.processing = true
             await axios.post('/register',this.user).then(response=>{
+                console.log(response)
                 this.signIn()
             }).catch(({response:{data}})=>{
                 console.log(data)
