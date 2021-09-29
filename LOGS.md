@@ -8,4 +8,8 @@ I built this project for the sole purpose of satisfying the requirements of the 
 
 *  I started testing the APIs given to see the output and how I can use it.
 
-*  I have finally decided that I will build an application that will work as self job finder
+*  I have finally decided that I will build an application that will work as self job finder.
+
+* I created a db schema and wrote my migration files
+
+* 
