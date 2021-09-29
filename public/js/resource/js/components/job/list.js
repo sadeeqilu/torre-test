@@ -125,7 +125,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   // this.jobs = response.data
                   var opportunities = response.data.opportunities.results;
                   opportunities.forEach(function (job) {
-                    _this.jobs.push({
+                    if (job.status == 'open' && job.remote) _this.jobs.push({
                       id: job.id,
                       objective: job.objective,
                       remote: job.remote,

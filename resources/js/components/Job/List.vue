@@ -85,15 +85,16 @@ export default {
                 // this.jobs = response.data
                 let opportunities = response.data.opportunities.results
                 opportunities.forEach( job => {
-                    this.jobs.push({
-                        id: job.id,
-                        objective: job.objective,
-                        remote: job.remote,
-                        company: job.organizations[0].name,
-                        description:'',
-                        rank: job._meta.rank.position,
-                        time:'',
-                        picture:job. organizations[0].picture
+                    if(job.status == 'open' && job.remote)
+                        this.jobs.push({
+                            id: job.id,
+                            objective: job.objective,
+                            remote: job.remote,
+                            company: job.organizations[0].name,
+                            description:'',
+                            rank: job._meta.rank.position,
+                            time:'',
+                            picture:job. organizations[0].picture
                 })
                 });
               
